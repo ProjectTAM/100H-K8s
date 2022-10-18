@@ -1,0 +1,110 @@
+site_name: ProjectTAM
+site_description: ProjectTAM 知识库主体框架
+site_author: ProjectTAM
+site_url: https://projecttam.com
+copyright: Copyright © 2013 - 2022 ProjectTAM. All Rights Reserved.
+
+nav:
+  - Home: 
+    - Home: index.md
+
+theme:
+  name: material
+  custom_dir: overrides
+
+  # 定义白天、黑夜阅读模式
+  palette: 
+    primary: white
+    accent: green
+
+  # 定义字体，text 为文本展示字体；code 为代码展示字体
+  font:
+    text: Noto Sans SC
+    code: Azeret Mono
+  
+  # 定义站点语言，向左对齐
+  language: zh
+  direction: ltr
+
+  # 定义站点图标
+  icon:
+    logo: material/bash
+  favicon: assets/images/favicon.png
+
+  features:
+    # 导航栏配置
+    - navigation.instant
+    - navigation.tracking
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.top
+    - navigation.sections
+    # - navigation.expand
+    - navigation.indexes
+
+    # 目录树配置
+    - toc.follow
+    # - toc.integrate
+
+    # 搜索配置
+    - search.suggest
+    - search.highlight
+
+    # 顶部公告已阅读状态
+    - announce.dismiss
+
+extra_javascript:
+  - assets/javascripts/shortcuts.js
+  - assets/stylesheets/extra.css
+
+extra:
+  # 站点主页地址
+  homepage: https://projecttam.com
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/orgs/ProjectTAM
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:admin@projecttam.com
+
+plugins:
+  - search:
+      lang: en
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
