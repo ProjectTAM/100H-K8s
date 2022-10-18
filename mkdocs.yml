@@ -1,7 +1,7 @@
-site_name: ProjectTAM
-site_description: ProjectTAM 知识库主体框架
+site_name: 100H-k8s
+site_description: 100 小时后请叫我 k8s 管理员系列课程
 site_author: ProjectTAM
-site_url: https://projecttam.com
+site_url: https://100h-k8s.projecttam.com
 copyright: Copyright © 2013 - 2022 ProjectTAM. All Rights Reserved.
 
 nav:
@@ -60,7 +60,7 @@ extra_javascript:
 
 extra:
   # 站点主页地址
-  homepage: https://projecttam.com
+  homepage: https://100h-k8s.projecttam.com
   generator: false
   social:
     - icon: fontawesome/brands/github
