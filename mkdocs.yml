@@ -15,8 +15,6 @@ nav:
 theme:
   name: material
   custom_dir: overrides
-  icon:
-    repo: fontawesome/brands/github
 
   # 定义白天、黑夜阅读模式
   palette: 
@@ -35,6 +33,7 @@ theme:
   # 定义站点图标
   icon:
     logo: material/bash
+    repo: fontawesome/brands/github
   favicon: assets/images/favicon.png
 
   features:
@@ -65,9 +64,15 @@ extra_javascript:
   - assets/stylesheets/extra.css
 
 extra:
+  # We love opensource
+  # Please support this excellent project
+  # https://github.com/sponsors/squidfunk
+  # generator: false
+
   # 站点主页地址
-  homepage: https://100h-k8s.projecttam.com
-  generator: false
+  homepage: https://projecttam.com
+  
+  # 社交主页
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/orgs/ProjectTAM
