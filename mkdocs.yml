@@ -4,6 +4,10 @@ site_author: ProjectTAM
 site_url: https://100h-k8s.projecttam.com
 copyright: Copyright © 2013 - 2022 ProjectTAM. All Rights Reserved.
 
+repo_url: https://github.com/ProjectTAM/100H-K8s
+repo_name: ProjectTAM/100H-K8s
+edit_uri: ""
+
 nav:
   - Home: 
     - Home: index.md
@@ -11,6 +15,8 @@ nav:
 theme:
   name: material
   custom_dir: overrides
+  icon:
+    repo: fontawesome/brands/github
 
   # 定义白天、黑夜阅读模式
   palette: 
