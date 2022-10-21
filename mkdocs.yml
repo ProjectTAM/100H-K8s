@@ -9,8 +9,23 @@ repo_name: ProjectTAM/100H-K8s
 edit_uri: ""
 
 nav:
-  - Home: 
-    - Home: index.md
+  - Introduction: index.md
+  - Chapter 01: chapter01.md
+  - Chapter 02: chapter02.md
+  - Chapter 03: chapter03.md
+  - Chapter 04: chapter04.md
+  - Chapter 05: chapter05.md
+  - Chapter 06: chapter06.md
+  - Chapter 07: chapter07.md
+  - Chapter 08: chapter08.md
+  - Chapter 09: chapter09.md
+  - Chapter 10: chapter10.md
+  - Chapter 11: chapter11.md
+  - Chapter 12: chapter12.md
+  - Chapter 13: chapter13.md
+  - Chapter 14: chapter14.md
+  - Chapter 15: chapter15.md
+
 
 theme:
   name: material
