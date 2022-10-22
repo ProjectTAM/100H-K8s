@@ -9,7 +9,11 @@ hide:
 
 ## 内容许可
 
-本项目中的所有文章归 ProjectTAM 所有，因项目主体框架依赖 [Material for MkDocs](https://github.com/squidfunk/mkdocs-material)，根据主体框架所使用的 MIT License 协议要求，本项目继承使用 MIT License，以下为详细协议要求：
+本文档的内容由 ProjectTAM 所有，采用 <a href="http://creativecommons.org/licenses/by/4.0/" target="_black">知识共享署名 4.0 国际许可协议</a> 进行许可，但另有说明的部分或引用部分除外
+
+## 代码许可
+
+本文档的代码采用 MIT 许可证授权，其条款如下：
 
 ```
 The MIT License (MIT)
