@@ -158,10 +158,15 @@ echo "export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.59.0/24,192.168.4
 ```bash
 # Minikube 初次启动状态
 * minikube v1.27.1 on Tencentos  (amd64)
+  - MINIKUBE_IN_STYLE=false
 * Using the docker driver based on user configuration
 * Using Docker driver with root privileges
 * Starting control plane node minikube in cluster minikube
 * Pulling base image ...
+* Downloading Kubernetes v1.25.2 preload ...
+    > preloaded-images-k8s-v18-v1...:  385.41 MiB / 385.41 MiB  100.00% 6.52 Mi
+    > gcr.io/k8s-minikube/kicbase:  387.11 MiB / 387.11 MiB  100.00% 5.74 MiB p
+    > gcr.io/k8s-minikube/kicbase:  0 B [________________________] ?% ? p/s 36s
 * Creating docker container (CPUs=2, Memory=4096MB) ...
 * Preparing Kubernetes v1.25.2 on Docker 20.10.18 ...
   - Generating certificates and keys ...
@@ -170,6 +175,7 @@ echo "export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.59.0/24,192.168.4
 * Verifying Kubernetes components...
   - Using image gcr.io/k8s-minikube/storage-provisioner:v5
 * Enabled addons: storage-provisioner, default-storageclass
+* kubectl not found. If you need it, try: 'minikube kubectl -- get pods -A'
 * Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 ```
 
@@ -373,7 +379,6 @@ kubectl get -o json -n kube-system pod etcd-minikube
             }
         ],
 ...
-}
 ```
 
 #### 列出所有的 Services
