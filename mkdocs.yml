@@ -25,6 +25,11 @@ nav:
   - Kubernetes 资源管理: chapter13.md
   - Kubernetes 调度: chapter14.md
   - Kubernetes 实践手册: chapter15.md
+  - 关于:
+    - 联系我们: about/contact.md
+    - 许可协议: about/license.md
+    - 更新日志: about/changelog.md
+    - 参与创作: about/how-to-writing.md
 
 
 theme:
@@ -65,7 +70,7 @@ theme:
 
     # 目录树配置
     - toc.follow
-    # - toc.integrate
+    - toc.integrate
 
     # 搜索配置
     - search.suggest
