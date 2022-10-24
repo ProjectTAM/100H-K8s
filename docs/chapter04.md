@@ -232,7 +232,7 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 # 移动至 /usr/local/bin/ 目录
 mv ~/kubectl /usr/local/bin/
 
-# 授权可自行权限。注意我们的 minikube 用户并没有配置 sudoers，需要在 root 用户下操作
+# 授权可执行权限。注意我们的 minikube 用户并没有配置 sudoers，需要在 root 用户下操作
 chmod +x /usr/local/bin/kubectl
 ```
 
