@@ -24,5 +24,5 @@ hide:
 - [Kubernetes Secret](chapter12.md)
 - [Kubernetes 资源管理](chapter13.md)
 - [Kubernetes 调度](chapter14.md)
-- [Kubernetes 实践手册](chapter15.md)
+- [Kubernetes 最佳实践](chapter15.md)
 
