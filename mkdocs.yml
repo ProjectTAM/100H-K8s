@@ -70,7 +70,7 @@ theme:
 
     # 目录树配置
     - toc.follow
-    - toc.integrate
+    # - toc.integrate
 
     # 搜索配置
     - search.suggest
