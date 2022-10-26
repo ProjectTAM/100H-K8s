@@ -1,6 +1,6 @@
 # Kubernetes 概述
 
->介绍概念不是本项目的初衷，对于 [Kubernetes 概述](./chapter01.md)、 [Kubernetes 架构](./chapter02.md)、 [Kubernetes 组件](./chapter03.md) 三篇文章，我们推荐阅读 [Kubernetes 概念](https://kubernetes.io/zh-cn/docs/concepts/) 作为主要学习方式。本文将摘录官方文档中的部分内容，以便本项目的阅读完整性
+>介绍概念不是本项目的初衷，本项目更类似于 **最佳实践手册** 对于 [Kubernetes 概述](./chapter01.md)、 [Kubernetes 架构](./chapter02.md)、 [Kubernetes 组件](./chapter03.md) 三篇文章，我们推荐阅读 [Kubernetes 概念](https://kubernetes.io/zh-cn/docs/concepts/) 作为主要学习方式。本文将摘录官方文档中的部分内容，以便本项目的阅读完整性
 
 >本文对官方文档进行了排版修改，并未改动文本内容，排版逻辑可参考 [如何贡献](https://github.com/ProjectTAM/100H-K8s/blob/master/CONTRIBUTING.md) 中的书写建议。当前摘录版本：[b73393f](https://github.com/kubernetes/website/commit/b73393f2f926f0af3164ccd61dbf82d915fa19a6)
 
