@@ -9,22 +9,23 @@ repo_name: ProjectTAM/100H-K8s
 edit_uri: ""
 
 nav:
-  - 前言: index.md
-  - Kubernetes 概述: chapter01.md
-  - Kubernetes 架构: chapter02.md
-  - Kubernetes 组件: chapter03.md
-  - 使用 Minikube 搭建单节点集群: chapter04.md
-  - Kubernetes 容器: chapter05.md
-  - Kubernetes 工作负载: chapter06.md
-  - Kubernetes 网络模型: chapter07.md
-  - Kubernetes 服务: chapter08.md
-  - Kubernetes 负载均衡: chapter09.md
-  - Kubernetes 卷管理: chapter10.md
-  - Kubernetes ConfigMap: chapter11.md
-  - Kubernetes Secret: chapter12.md
-  - Kubernetes 资源管理: chapter13.md
-  - Kubernetes 调度: chapter14.md
-  - Kubernetes 实践手册: chapter15.md
+  - 目录: 
+    - Index: index.md
+    - Kubernetes 概述: Chapter01/chapter01.md
+    - Kubernetes 架构: Chapter02/chapter02.md
+    - Kubernetes 组件: Chapter03/chapter03.md
+    - 使用 Minikube 搭建单节点集群: Chapter04/chapter04.md
+    - Kubernetes 容器: Chapter05/chapter05.md
+    - Kubernetes 工作负载: Chapter06/chapter06.md
+    - Kubernetes 网络模型: Chapter07/chapter07.md
+    - Kubernetes 服务: Chapter08/chapter08.md
+    - Kubernetes 负载均衡: Chapter09/chapter09.md
+    - Kubernetes 卷管理: Chapter10/chapter10.md
+    - Kubernetes ConfigMap: Chapter11/chapter11.md
+    - Kubernetes Secret: Chapter12/chapter12.md
+    - Kubernetes 资源管理: Chapter13/chapter13.md
+    - Kubernetes 调度: Chapter14/chapter14.md
+    - Kubernetes 实践手册: Chapter15/chapter15.md
   - 关于:
     - 联系我们: about/contact.md
     - 许可协议: about/license.md
