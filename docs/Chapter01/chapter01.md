@@ -5,7 +5,7 @@
     
     概述、架构、组件三篇文章将摘录官方文档中的内容，以便本项目的阅读完整性，默认情况下不会更改文本中的任何内容，仅会修改明显出现错误的地方，修改内容会使用 **脚注** 特别标注
     
-    本文对官方文档 [概述](https://kubernetes.io/zh-cn/docs/concepts/overview/#going-back-in-time) 页面进行了排版修改，并未改动文本内容，排版逻辑可参考 [如何贡献](https://github.com/ProjectTAM/100H-K8s/blob/master/CONTRIBUTING.md) 中的书写建议。当前摘录版本：[B73393F](https://github.com/kubernetes/website/commit/b73393f2f926f0af3164ccd61dbf82d915fa19a6)
+    本文对官方文档 [概述](https://kubernetes.io/zh-cn/docs/concepts/overview/#going-back-in-time) 页面进行了排版修改，并未改动文本内容（删掉了 **接下来**、**反馈**），排版逻辑可参考 [如何贡献](https://github.com/ProjectTAM/100H-K8s/blob/master/CONTRIBUTING.md) 中的书写建议。当前摘录版本：[B73393F](https://github.com/kubernetes/website/commit/b73393f2f926f0af3164ccd61dbf82d915fa19a6)
 
 Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化的工作负载和服务，可促进声明式配置和自动化
 
