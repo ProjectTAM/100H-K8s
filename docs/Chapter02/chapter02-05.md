@@ -10,7 +10,7 @@ kubelet 和底层容器运行时都需要对接 cgroup 来强制执行 [为 Pod 
 Linux 中有两个 cgroup 版本：cgroup v1 和 cgroup v2。cgroup v2 是新一代的 cgroup API
 
 
-## 什么是 cgroup v2？  {#cgroup-v2}
+## 什么是 cgroup v2？ {#cgroup-v2}
 
 **特性状态：** {==Kubernetes v1.25 [stable]==}
 
@@ -27,13 +27,13 @@ cgroup v2 对 cgroup v1 进行了多项改进，例如：
 
 一些 Kubernetes 特性专门使用 cgroup v2 来增强资源管理和隔离。例如，[MemoryQoS](https://kubernetes.io/blog/2021/11/26/qos-memory-resources/) 特性改进了内存 QoS 并依赖于 cgroup v2 原语
 
-## 使用 cgroup v2
+## 使用 cgroup v2 {#using-cgroupv2}
 
 使用 cgroup v2 的推荐方法是使用一个默认启用 cgroup v2 的 Linux 发行版
 
-要检查你的发行版是否使用 cgroup v2，请参阅 **识别 Linux 节点上的 cgroup 版本**
+要检查你的发行版是否使用 cgroup v2，请参阅 [识别 Linux 节点上的 cgroup 版本](#check-cgroup-version)
 
-### 要求
+### 要求 {#requirements}
 
 cgroup v2 具有以下要求：
 
@@ -44,7 +44,7 @@ cgroup v2 具有以下要求：
     * [cri-o](https://cri-o.io/) v1.20 和更高版本
 * kubelet 和容器运行时被配置为使用 [systemd cgroup 驱动](https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes#systemd-cgroup-driver)
 
-### Linux 发行版 cgroup v2 支持
+### Linux 发行版 cgroup v2 支持 {#linux-distribution-cgroup-v2-support}
 
 有关使用 cgroup v2 的 Linux 发行版的列表，请参阅 [cgroup v2 文档](https://github.com/opencontainers/runc/blob/main/docs/cgroup-v2.md)
 
@@ -55,13 +55,13 @@ cgroup v2 具有以下要求：
 * Arch Linux（从 2021 年 4 月开始）
 * RHEL 和类似 RHEL 的发行版（从 9 开始）
 
-要检查你的发行版是否使用 cgroup v2，请参阅你的发行版文档或遵循 **识别 Linux 节点上的 cgroup 版本** 中的指示说明。
+要检查你的发行版是否使用 cgroup v2，请参阅你的发行版文档或遵循 [识别 Linux 节点上的 cgroup 版本](#check-cgroup-version) 中的指示说明。
 
 你还可以通过修改内核 cmdline 引导参数在你的 Linux 发行版上手动启用 cgroup v2。如果你的发行版使用 GRUB，则应在 `/etc/default/grub` 下的 `GRUB_CMDLINE_LINUX` 中添加 `systemd.unified_cgroup_hierarchy=1`，然后执行 `sudo update-grub`。不过，推荐的方法仍是使用一个默认已启用 cgroup v2 的发行版
 
-### 迁移到 cgroup v2
+### 迁移到 cgroup v2 {#migrating-cgroupv2}
 
-要迁移到 cgroup v2，需确保满足 **要求**，然后升级到一个默认启用 cgroup v2 的内核版本
+要迁移到 cgroup v2，需确保满足 [要求](#requirements)，然后升级到一个默认启用 cgroup v2 的内核版本
 
 kubelet 能够自动检测操作系统是否运行在 cgroup v2 上并相应调整其操作，无需额外配置
 
@@ -73,7 +73,7 @@ cgroup v2 使用一个与 cgroup v1 不同的 API，因此如果有任何应用�
 * 如果以独立的 DaemonSet 的形式运行 [cAdvisor](https://github.com/google/cadvisor) 以监控 Pod 和容器，需将其更新到 v0.43.0 或更高版本
 * 如果你使用 JDK，推荐使用 JDK 11.0.16 及更高版本或 JDK 15 及更高版本，以便 [完全支持 cgroup v2](https://bugs.openjdk.org/browse/JDK-8230305)
 
-## 识别 Linux 节点上的 cgroup 版本
+## 识别 Linux 节点上的 cgroup 版本 {#check-cgroup-version}
 
 cgroup 版本取决于正在使用的 Linux 发行版和操作系统上配置的默认 cgroup 版本。要检查你的发行版使用的是哪个 cgroup 版本，请在该节点上运行 `stat -fc %T /sys/fs/cgroup/` 命令：
 
