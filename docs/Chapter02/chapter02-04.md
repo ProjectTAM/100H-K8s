@@ -13,7 +13,7 @@
 
 cloud-controller-manager 组件是基于一种插件机制来构造的，这种机制使得不同的云厂商都能将其平台与 Kubernetes 集成
 
-## 设计
+## 设计 {#design}
 
 ![Kubernetes 组件](/assets/images/docs/chapter02-04-01.svg)
 
@@ -22,11 +22,11 @@ cloud-controller-manager 组件是基于一种插件机制来构造的，这种�
 !!! note "说明："
     你也可以用 Kubernetes 插件的形式而不是控制面中的一部分来运行云控制器管理器
 
-## 云控制器管理器的功能
+## 云控制器管理器的功能 {#functions-of-the-ccm}
 
 云控制器管理器中的控制器包括：
 
-### 节点控制器
+### 节点控制器 {#node-controller}
 
 节点控制器负责在云基础设施中创建了新服务器时为之更新节点（Node）对象。节点控制器从云提供商获取当前租户中主机的信息。节点控制器执行以下功能：
 
@@ -37,21 +37,21 @@ cloud-controller-manager 组件是基于一种插件机制来构造的，这种�
 
 某些云驱动实现中，这些任务被划分到一个节点控制器和一个节点生命周期控制器中
 
-### 路由控制器
+### 路由控制器 {#route-controller}
 
 Route 控制器负责适当地配置云平台中的路由，以便 Kubernetes 集群中不同节点上的容器之间可以相互通信
 
 取决于云驱动本身，路由控制器可能也会为 Pod 网络分配 IP 地址块
 
-### 服务控制器
+### 服务控制器 {#service-controller}
 
 服务（Service）与受控的负载均衡器、IP 地址、网络包过滤、目标健康检查等云基础设施组件集成。服务控制器与云驱动的 API 交互，以配置负载均衡器和其他基础设施组件。你所创建的 Service 资源会需要这些组件服务
 
-## 鉴权
+## 鉴权 {#authorization}
 
 本节分别讲述云控制器管理器为了完成自身工作而产生的对各类 API 对象的访问需求
 
-### 节点控制器
+### 节点控制器 {#authorization-node-controller}
 
 节点控制器只操作 Node 对象。它需要读取和修改 Node 对象的完全访问权限
 
@@ -90,7 +90,7 @@ Route 控制器负责适当地配置云平台中的路由，以便 Kubernetes �
 - Patch
 - Update
 
-### 其他
+### 其他 {#authorization-miscellaneous}
 
 在云控制器管理器的实现中，其核心部分需要创建 Event 对象的访问权限，并创建 ServiceAccount 资源以保证操作安全性的权限
 
