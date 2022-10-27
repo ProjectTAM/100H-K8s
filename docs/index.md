@@ -6,7 +6,7 @@ hide:
 
 # 目录
 
-首先感谢你作为读者阅读本课程，我们的团队希望能通过 **100H** 系列课程给予新人以指引，初版课程将尽快发布，敬请期待
+首先感谢您作为读者阅读本课程，我们的团队希望能通过 **100H** 系列课程给予新人以指引，初版课程将尽快发布，敬请期待
 
 以下为本课程的基本目录，每篇课程都将从实践操作出发进行学习，你可以在第四个章节 [使用 Minikube 搭建单节点集群](Chapter04/chapter04.md) 学习如何搭建单节点集群
 
@@ -27,4 +27,3 @@ hide:
 | [Kubernetes 资源管理](Chapter13/chapter13.md) | :x: | 内容待补充 | :sleeping: |
 | [Kubernetes 调度](Chapter14/chapter14.md) | :x: | 内容待补充 | :sleeping: |
 | [Kubernetes 最佳实践](Chapter15/chapter15.md) | :x: | 内容待补充 | :sleeping: |
-
