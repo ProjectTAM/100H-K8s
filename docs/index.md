@@ -12,9 +12,9 @@ hide:
 
 | 文章列表 | 完成情况 | 章节描述 | 最后更新 |
 | :--- | :--- | :--- | :--- |
-| [Kubernetes 概述](Chapter01/chapter01.md) | :white_check_mark: | 内容待补充 | 20221026 |
-| [Kubernetes 架构](Chapter02/chapter02.md) | :x: | 内容待补充 | :sleeping: |
-| [Kubernetes 组件](Chapter03/chapter03.md) | :white_check_mark: | 内容待补充 | 20221026 |
+| [Kubernetes 概述](Chapter01/chapter01.md) | :white_check_mark: | 简单介绍 Kubernetes 的演进历史，并说明 Kubernetes 能做和不能做的事情 | 20221026 |
+| [Kubernetes 架构](Chapter02/chapter02.md) | :white_check_mark: | 从 Node 节点讲起，给初学者详细讲清楚 Kubernetes 底层设计逻辑，方便进行后续的学习理解 | 20221027 |
+| [Kubernetes 组件](Chapter03/chapter03.md) | :white_check_mark: | Kubernetes 的运行离不开多种组件的支撑，本文较为详细的介绍了 Kubernetes 使用的几个关键组件 | 20221026 |
 | [使用 Minikube 搭建单节点集群](Chapter04/chapter04.md) | :white_check_mark: | 使用 Minikube 作为本课程的的基础学习环境，完整搭建环境并部署一个简单的服务进行实践 | 20221025 |
 | [Kubernetes 容器](Chapter05/chapter05.md) | :x: | 内容待补充 | :sleeping: |
 | [Kubernetes 工作负载](Chapter06/chapter06.md) | :x: | 内容待补充 | :sleeping: |
