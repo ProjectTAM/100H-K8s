@@ -13,7 +13,7 @@ Kubernetes 拥有一个庞大且快速增长的生态，其服务、支持和工
 
 **Kubernetes** 这个名字源于希腊语，意为“舵手”或“飞行员”。k8s 这个缩写是因为 k 和 s 之间有八个字符的关系。Google 在 2014 年开源了 Kubernetes 项目。Kubernetes 建立在 [Google 大规模运行生产工作负载十几年经验](https://research.google/pubs/pub43438)的基础上，结合了社区中最优秀的想法和实践
 
-## 时光回溯
+## 时光回溯 {#going-back-in-time}
 
 让我们回顾一下为何 Kubernetes 能够裨益四方
 
@@ -48,7 +48,7 @@ Kubernetes 拥有一个庞大且快速增长的生态，其服务、支持和工
 * 资源隔离：可预测的应用程序性能
 * 资源利用：高效率和高密度
 
-## 为什么需要 Kubernetes，它能做什么？
+## 为什么需要 Kubernetes，它能做什么？ {#why-you-need-kubernetes-and-what-can-it-do}
 
 容器是打包和运行应用程序的好方式。在生产环境中，你需要管理运行着应用程序的容器，并确保服务不会下线。例如，如果一个容器发生故障，则你需要启动另一个容器。如果此行为交由给系统处理，是不是会更容易一些？
 
@@ -80,7 +80,7 @@ Kubernetes 为你提供：
 
     Kubernetes 允许你存储和管理敏感信息，例如密码、OAuth 令牌和 ssh 密钥。你可以在不重建容器镜像的情况下部署和更新密钥和应用程序配置，也无需在堆栈配置中暴露密钥
 
-## Kubernetes 不是什么
+## Kubernetes 不是什么 {#what-kubernetes-is-not}
 
 Kubernetes 不是传统的、包罗万象的 PaaS（平台即服务）系统。由于 Kubernetes 是在容器级别运行，而非在硬件级别，它提供了 PaaS 产品共有的一些普遍适用的功能，例如部署、扩展、负载均衡，允许用户集成他们的日志记录、监控和警报方案。但是，Kubernetes 不是单体式（monolithic）系统，那些默认解决方案都是可选、可插拔的。Kubernetes 为构建开发人员平台提供了基础，但是在重要的地方保留了用户选择权，能有更高的灵活性
 
