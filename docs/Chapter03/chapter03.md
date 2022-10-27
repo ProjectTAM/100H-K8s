@@ -1,7 +1,7 @@
 # Kubernetes 组件
 
 !!! info "章节说明"
-    本文对官方文档 [Kubernetes 组件](https://kubernetes.io/zh-cn/docs/concepts/overview/components/#node-components) 页面进行了排版修改，并对文本中的书写错误进行了修改，排版逻辑可参考 [如何贡献](https://github.com/ProjectTAM/100H-K8s/blob/master/CONTRIBUTING.md) 中的书写建议。当前摘录版本：[9318636](https://github.com/kubernetes/website/commit/931863635e9d7540e08026e78a722e02fed259e8)
+    本文对官方文档 [Kubernetes 组件](https://kubernetes.io/zh-cn/docs/concepts/overview/components/#node-components) 页面进行了排版修改，并对文本中的书写错误进行了修改（删掉了 **接下来**、**反馈**），排版逻辑可参考 [如何贡献](https://github.com/ProjectTAM/100H-K8s/blob/master/CONTRIBUTING.md) 中的书写建议。当前摘录版本：[9318636](https://github.com/kubernetes/website/commit/931863635e9d7540e08026e78a722e02fed259e8)
 
 当你部署完 Kubernetes，便拥有了一个完整的集群
 
