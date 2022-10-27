@@ -9,7 +9,7 @@ Kubernetes 通过将容器放入在节点（Node）上运行的 Pod 中来执行
 
 节点上的 [组件](https://kubernetes.io/zh-cn/docs/concepts/overview/components/#node-components) 包括 kubelet、容器运行时以及 kube-proxy
 
-## 管理  {#management}
+## 管理 {#management}
 
 向 API 服务器添加节点的方式主要有两种：
 
@@ -38,7 +38,7 @@ Kubernetes 会在内部创建一个 Node 对象作为节点的表示。Kubernete
 
 Node 对象的名称必须是合法的 [DNS 子域名](https://kubernetes.io/zh-cn/docs/concepts/overview/working-with-objects/names#dns-subdomain-names)
 
-### 节点名称唯一性
+### 节点名称唯一性 {#node-name-uniqueness}
 
 节点的 [名称](https://kubernetes.io/zh-cn/docs/concepts/overview/working-with-objects/names#names) 用来标识 Node 对象。没有两个 Node 可以同时使用相同的名称。Kubernetes 还假定名字相同的资源是同一个对象。就 Node 而言，隐式假定使用相同名称的实例会具有相同的状态（例如网络配置、根磁盘内容）和类似节点标签这类属性。这可能在节点被更改但其名称未变时导致系统状态不一致。如果某个 Node 需要被替换或者大量变更，需要从 API 服务器移除现有的 Node 对象，之后再在更新之后重新将其加入
 
@@ -59,11 +59,11 @@ Node 对象的名称必须是合法的 [DNS 子域名](https://kubernetes.io/zh-
 启用 [Node 鉴权模式](https://kubernetes.io/zh-cn/docs/reference/access-authn-authz/node/) 和 [NodeRestriction 准入插件](https://kubernetes.io/zh-cn/docs/reference/access-authn-authz/admission-controllers/#noderestriction) 时，仅授权 `kubelet` 创建或修改其自己的节点资源
 
 !!! note "说明："
-    正如 **节点名称唯一性** 一节所述，当 Node 的配置需要被更新时，一种好的做法是重新向 API 服务器注册该节点。例如，如果 kubelet 重启时其 `--node-labels` 是新的值集，但同一个 Node 名称已经被使用，则所作变更不会起作用， 因为节点标签是在 Node 注册时完成的
+    正如 [节点名称唯一性](#node-name-uniqueness) 一节所述，当 Node 的配置需要被更新时，一种好的做法是重新向 API 服务器注册该节点。例如，如果 kubelet 重启时其 `--node-labels` 是新的值集，但同一个 Node 名称已经被使用，则所作变更不会起作用， 因为节点标签是在 Node 注册时完成的
     
     如果在 kubelet 重启期间 Node 配置发生了变化，已经被调度到某 Node 上的 Pod 可能会出现行为不正常或者出现其他问题，例如，已经运行的 Pod 可能通过污点机制设置了与 Node 上新设置的标签相排斥的规则，也有一些其他 Pod， 本来与此 Pod 之间存在不兼容的问题，也会因为新的标签设置而被调到同一节点。 节点重新注册操作可以确保节点上所有 Pod 都被排空并被正确地重新调度
 
-### 手动节点管理
+### 手动节点管理 {#manual-node-administration}
 
 你可以使用 kubectl 来创建和修改 Node 对象
 
@@ -86,7 +86,7 @@ kubectl cordon $NODENAME
 !!! note "说明："
     被 DaemonSet 控制器创建的 Pod 能够容忍节点的不可调度属性。 DaemonSet 通常提供节点本地的服务，即使节点上的负载应用已经被腾空， 这些服务也仍需运行在节点之上
 
-## 节点状态
+## 节点状态 {#node-status}
 
 一个节点的状态包含以下信息:
 
@@ -103,7 +103,7 @@ kubectl describe node <节点名称>
 
 下面对每个部分进行详细描述
 
-### 地址
+### 地址 {#addresses}
 
 这些字段的用法取决于你的云服务商或者物理机配置
 
@@ -111,7 +111,7 @@ kubectl describe node <节点名称>
 * ExternalIP：通常是节点的可外部路由（从集群外可访问）的 IP 地址
 * InternalIP：通常是节点的仅可在集群内部路由的 IP 地址
 
-### 状况
+### 状况 {#condition}
 
 `conditions` 字段描述了所有 `Running` 节点的状况。状况的示例包括：
 
@@ -151,7 +151,7 @@ kubectl describe node <节点名称>
 
 进一步的细节可参阅 [根据状况为节点设置污点](https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/taint-and-toleration/#taint-nodes-by-condition)
 
-### 容量（Capacity）与可分配（Allocatable）
+### 容量（Capacity）与可分配（Allocatable） {#capacity}
 
 这两个值描述节点上的可用资源：CPU、内存和可以调度到节点上的 Pod 的个数上限
 
@@ -159,11 +159,11 @@ kubectl describe node <节点名称>
 
 可以在学习如何在节点上 [预留计算资源](https://kubernetes.io/zh-cn/docs/tasks/administer-cluster/reserve-compute-resources/#node-allocatable) 的时候了解有关容量和可分配资源的更多信息
 
-### 信息（Info）
+### 信息（Info） {#info}
 
 Info 指的是节点的一般信息，如内核版本、Kubernetes 版本（`kubelet` 和 `kube-proxy` 版本）、容器运行时详细信息，以及节点使用的操作系统。`kubelet` 从节点收集这些信息并将其发布到 Kubernetes API
 
-## 心跳
+## 心跳 {#heartbeats}
 
 Kubernetes 节点发送的心跳帮助你的集群确定每个节点的可用性，并在检测到故障时采取行动
 
@@ -179,7 +179,7 @@ kubelet 负责创建和更新节点的 `.status`，以及更新它们对应的 L
 - 当节点状态发生变化时，或者在配置的时间间隔内没有更新事件时，kubelet 会更新 `.status`。`.status` 更新的默认间隔为 5 分钟（比节点不可达事件的 40 秒默认超时时间长很多）
 - `kubelet` 会创建并每 10 秒（默认更新间隔时间）更新 Lease 对象。Lease 的更新独立于 Node 的 `.status` 更新而发生。如果 Lease 的更新操作失败，kubelet 会采用指数回退机制，从 200 毫秒开始重试，最长重试间隔为 7 秒钟
 
-## 节点控制器
+## 节点控制器 {#node-controller}
 
 节点控制器是 Kubernetes 控制面组件，管理节点的方方面面
 
@@ -194,7 +194,7 @@ kubelet 负责创建和更新节点的 `.status`，以及更新它们对应的 L
 
 默认情况下，节点控制器每 5 秒检查一次节点状态，可以使用 `kube-controller-manager` 组件上的 `--node-monitor-period` 参数来配置周期
 
-### 逐出速率限制
+### 逐出速率限制 {#rate-limits-on-eviction}
 
 大部分情况下，节点控制器把逐出速率限制在每秒 `--node-eviction-rate` 个（默认为 0.1）。这表示它每 10 秒钟内至多从一个节点驱逐 Pod
 
@@ -210,22 +210,22 @@ kubelet 负责创建和更新节点的 `.status`，以及更新它们对应的 L
 
 节点控制器还负责驱逐运行在拥有 `NoExecute` 污点的节点上的 Pod，除非这些 Pod 能够容忍此污点。节点控制器还负责根据节点故障（例如节点不可访问或没有就绪）为其添加污点。这意味着调度器不会将 Pod 调度到不健康的节点上
 
-### 资源容量跟踪
+### 资源容量跟踪 {#node-capacity}
 
-Node 对象会跟踪节点上资源的容量（例如可用内存和 CPU 数量）。通过 **自注册** 机制生成的 Node 对象会在注册期间报告自身容量。如果你 **手动** 添加了 Node，你就需要在添加节点时手动设置节点容量。
+Node 对象会跟踪节点上资源的容量（例如可用内存和 CPU 数量）。通过 [自注册](#self-registration-of-nodes) 机制生成的 Node 对象会在注册期间报告自身容量。如果你 [手动](#manual-node-administration) 添加了 Node，你就需要在添加节点时手动设置节点容量。
 
 Kubernetes 调度器保证节点上有足够的资源供其上的所有 Pod 使用。它会检查节点上所有容器的请求的总和不会超过节点的容量。总的请求包括由 kubelet 启动的所有容器，但不包括由容器运行时直接启动的容器，也不包括不受 `kubelet` 控制的其他进程
 
 !!!note "说明："
     如果要为非 Pod 进程显式保留资源。 请参考 [为系统守护进程预留资源](https://kubernetes.io/zh-cn/docs/tasks/administer-cluster/reserve-compute-resources/#system-reserved)
 
-## 节点拓扑
+## 节点拓扑 {#node-topology}
 
 **特性状态：** {==Kubernetes v1.18 [beta]==}
 
 如果启用了 `TopologyManager` [特性门控](https://kubernetes.io/zh-cn/docs/reference/command-line-tools-reference/feature-gates/)，`kubelet` 可以在作出资源分配决策时使用拓扑提示。参考 [控制节点上拓扑管理策略](https://kubernetes.io/zh-cn/docs/tasks/administer-cluster/topology-manager/) 了解详细信息
 
-## 节点体面关闭
+## 节点体面关闭 {#graceful-node-shutdown}
 
 **特性状态：** {==Kubernetes v1.21 [beta]==}
 
@@ -261,11 +261,11 @@ kubelet 会尝试检测节点系统关闭事件并终止在节点上运行的所
     Message:        Pod was terminated in response to imminent node shutdown.
     ```
 
-## 节点非体面关闭
+## 节点非体面关闭 {#non-graceful-node-shutdown}
 
 **特性状态：** {==Kubernetes v1.24 [alpha]==}
 
-节点关闭的操作可能无法被 kubelet 的节点关闭管理器检测到，是因为该命令不会触发 kubelet 所使用的抑制锁定机制，或者是因为用户错误的原因，即 ShutdownGracePeriod 和 ShutdownGracePeriodCriticalPod 配置不正确。请参考以上 **节点体面关闭** 部分了解更多详细信息
+节点关闭的操作可能无法被 kubelet 的节点关闭管理器检测到，是因为该命令不会触发 kubelet 所使用的抑制锁定机制，或者是因为用户错误的原因，即 ShutdownGracePeriod 和 ShutdownGracePeriodCriticalPod 配置不正确。请参考以上 [节点体面关闭](#graceful-node-shutdown) 部分了解更多详细信息
 
 当某节点关闭但 kubelet 的节点关闭管理器未检测到这一事件时， 在那个已关闭节点上、属于 StatefulSet 的 Pod 将停滞于终止状态，并且不能移动到新的运行节点上。 这是因为已关闭节点上的 kubelet 已不存在，亦无法删除 Pod， 因此 StatefulSet 无法创建同名的新 Pod。 如果 Pod 使用了卷，则 VolumeAttachments 不会从原来的已关闭节点上删除， 因此这些 Pod 所使用的卷也无法挂接到新的运行节点上。 所以，那些以 StatefulSet 形式运行的应用无法正常工作。 如果原来的已关闭节点被恢复，kubelet 将删除 Pod，新的 Pod 将被在不同的运行节点上创建。 如果原来的已关闭节点没有被恢复，那些在已关闭节点上的 Pod 将永远滞留在终止状态
 
@@ -280,13 +280,13 @@ kubelet 会尝试检测节点系统关闭事件并终止在节点上运行的所
       - 在添加 `node.kubernetes.io/out-of-service` 污点之前，应该验证节点已经处于关闭或断电状态（而不是在重新启动中）
       - 将 Pod 移动到新节点后，用户需要手动移除停止服务的污点，并且用户要检查关闭节点是否已恢复，因为该用户是最初添加污点的用户
 
-### 基于 Pod 优先级的节点体面关闭
+### 基于 Pod 优先级的节点体面关闭 {#pod-priority-graceful-node-shutdown}
 
 **特性状态：** {==Kubernetes v1.23 [alpha]==}
 
 为了在节点体面关闭期间提供更多的灵活性，尤其是处理关闭期间的 Pod 排序问题，节点体面关闭机制能够关注 Pod 的 PriorityClass 设置，前提是你已经在集群中启用了此功能特性。此功能特性允许集群管理员基于 Pod 的 [优先级类（Priority Class）](https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass) 显式地定义节点体面关闭期间 Pod 的处理顺序
 
-前文所述的 **节点体面关闭** 特性能够分两个阶段关闭 Pod，首先关闭的是非关键的 Pod，之后再处理关键 Pod。如果需要显式地以更细粒度定义关闭期间 Pod 的处理顺序，需要一定的灵活度，这时可以使用基于 Pod 优先级的体面关闭机制
+前文所述的 [节点体面关闭](#graceful-node-shutdown) 特性能够分两个阶段关闭 Pod，首先关闭的是非关键的 Pod，之后再处理关键 Pod。如果需要显式地以更细粒度定义关闭期间 Pod 的处理顺序，需要一定的灵活度，这时可以使用基于 Pod 优先级的体面关闭机制
 
 当节点体面关闭能够处理 Pod 优先级时，节点体面关闭的处理可以分为多个阶段， 每个阶段关闭特定优先级类的 Pod。kubelet 可以被配置为按确切的阶段处理 Pod， 且每个阶段可以独立设置关闭时间
 
@@ -345,7 +345,7 @@ shutdownGracePeriodByPodPriority:
 
 kubelet 子系统中会生成 `graceful_shutdown_start_time_seconds` 和 `graceful_shutdown_end_time_seconds` 度量指标以便监视节点关闭行为
 
-## 交换内存管理
+## 交换内存管理 {#swap-memory}
 
 **特性状态：** {==Kubernetes v1.22 [alpha]==}
 
