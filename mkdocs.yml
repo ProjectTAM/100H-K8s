@@ -30,8 +30,6 @@ nav:
     - 联系我们: about/contact.md
     - 许可协议: about/license.md
     - 更新日志: about/changelog.md
-    - 参与创作: about/how-to-writing.md
-
 
 theme:
   name: material
@@ -39,8 +37,23 @@ theme:
 
   # 定义白天、黑夜阅读模式
   palette: 
-    primary: white
-    accent: green
+    # 自动切换到白天模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: green
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # # 自动切换到黑夜模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: light green
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
   # 定义字体，text 为文本展示字体；code 为代码展示字体
   font:
